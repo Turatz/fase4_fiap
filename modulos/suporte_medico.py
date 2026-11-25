@@ -1,6 +1,6 @@
 from modulos.modulo_base import ModuloBase
 
-class Suporte_Medico(ModuloBase):
+class SuporteMedico(ModuloBase):
 
     def __init__(self):
         super().__init__(

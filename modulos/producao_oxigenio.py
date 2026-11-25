@@ -1,6 +1,6 @@
 from modulos.modulo_base import ModuloBase
 
-class Producao_Oxigenio(ModuloBase):
+class ProducaoOxigenio(ModuloBase):
 
     def __init__(self):
         super().__init__(

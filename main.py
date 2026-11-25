@@ -1,7 +1,11 @@
-from modulos.habitacao import Habitacao
+from modulos.gerenciador_modulos import GerenciadorModulos
+from menus.menu_principal import menu_principal
 
-habitacao = Habitacao()
+gerenciador = GerenciadorModulos()
 
-print(habitacao.nome)
-print(habitacao.consumo_energetico)
-print(habitacao.consultar_status())
+while True:
+    continuar = menu_principal(gerenciador)
+
+    if not continuar:
+        print("Encerrando o SIGIC...")
+        break
