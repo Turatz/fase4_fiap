@@ -22,10 +22,11 @@ def menu_gerenciar_modulos(gerenciador):
                 for identificador, modulo in modulos.items():
                     print(f"\nMódulo: {modulo.nome}")
                     print(f"Identificador: {identificador}")
-                    print(f"Consumo energético: {modulo.consumo_energetico}")
-                    print(f"Prioridade: {modulo.prioridade_operacional}")
-                    print(f"Status: {modulo.consultar_status()}")
 
+                    dados = modulo.consultar_dados()
+
+                    for atributo, valor in dados.items():
+                        print(f"{atributo}: {valor}")
             case 0:
                 break
             case _:
