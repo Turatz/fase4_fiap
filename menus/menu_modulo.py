@@ -8,7 +8,11 @@ def menu_gerenciar_modulos(gerenciador):
         print("2. Listar módulos")
         print("0. Voltar")
 
-        opcao = int(input("Escolha uma opção: "))
+        try:
+            opcao = int(input("Escolha uma opção: "))
+        except ValueError:
+            print("Digite uma opção numérica válida.")
+            continue
 
         match opcao:
             case 1:
@@ -19,14 +23,24 @@ def menu_gerenciar_modulos(gerenciador):
 
                 print("\n===== MÓDULOS DA COLÔNIA =====")
 
+                nomes_atributos = {
+                    "nome": "Nome",
+                    "consumo_energetico": "Consumo energético",
+                    "prioridade_operacional": "Prioridade operacional",
+                    "capacidade_armazenamento": "Capacidade de armazenamento",
+                    "necessidade_comunicacao": "Necessidade de comunicação",
+                    "status_operacional": "Status operacional"
+                }
+
                 for identificador, modulo in modulos.items():
-                    print(f"\nMódulo: {modulo.nome}")
+                    print(f"\n--- {modulo.nome.upper()} ---")
                     print(f"Identificador: {identificador}")
 
                     dados = modulo.consultar_dados()
 
                     for atributo, valor in dados.items():
-                        print(f"{atributo}: {valor}")
+                        nome_exibicao = nomes_atributos[atributo]
+                        print(f"{nome_exibicao}: {valor}")
             case 0:
                 break
             case _:
